@@ -2,6 +2,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import { TaskStatus } from '../entities/task.entity';
 import { User } from 'src/user/entities/user.entity';
 import { Project } from 'src/projects/entities/project.entity';
+import { Sprints } from 'src/sprints/entities/sprint.entity';
 
 export class CreateTaskDto {
   @ApiProperty()
@@ -26,7 +27,15 @@ export class CreateTaskDto {
     required: true,
   })
   taskOf: Project;
+
+   @ApiProperty({
+    description: 'ID of the sprint to assign this task to',
+    type: Number,
+    required: false,
+  })
+  sprint: Sprints; 
 }
+
 
 export class taskSearchDto{
     @ApiProperty()

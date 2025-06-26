@@ -1,5 +1,6 @@
 import { BaseEntity } from "base.entity";
 import { Project } from "src/projects/entities/project.entity";
+import { Sprints } from "src/sprints/entities/sprint.entity";
 import { User } from "src/user/entities/user.entity";
 import { Column, Entity, JoinColumn, ManyToOne } from "typeorm";
 
@@ -32,6 +33,9 @@ export class Task extends BaseEntity{
     @ManyToOne(()=> Project)
     @JoinColumn()
     taskOf:Project
+
+    @ManyToOne(() => Sprints, (sprint) => sprint.tasks)
+    sprint: Sprints;
 
 
 }
