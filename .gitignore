@@ -76,3 +76,4 @@ lerna-debug.log*
 !.vscode/extensions.json
 
 config.bat
+.vscode/*
